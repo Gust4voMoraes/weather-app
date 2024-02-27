@@ -3,7 +3,12 @@ import requests
 
 app = Flask(__name__)
 
+
 @app.route("/")
+def index():
+    return render_template('index.html')
+
+@app.route("/weather")
 def weather():
     city = request.args.get('city')
     url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid=c32cd803940fee998e5be7a343aa5a4b&units=metric'
